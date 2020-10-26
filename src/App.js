@@ -1,22 +1,49 @@
-import React from "react";
-import BookList from "./components/BookList";
-import Navbar from "./components/Navbar";
-import ThemeToggle from "./components/ThemeToggle";
-import AuthContextProvider from "./context/AuthContext";
-import ThemeContextProvide from "./context/ThemeContext";
+//class component
+// import React from "react";
+// import Navbar from "./Class/component/Navbar";
+// import BookList from "./Class/component/BookList";
+// import ThemeToggle from "./Class/component/ThemeToggle";
+// import AuthContextProvider from "./Class/context/AuthContext";
+// import ThemeContextProvide from "./Class/context/ThemeContext";
 
-function App() {
+// // import AuthCo
+// function App() {
+// return (
+//   <div className="App">
+//     <ThemeContextProvide>
+//       <AuthContextProvider>
+//         <Navbar />
+//         <BookList />
+//         <ThemeToggle />
+//       </AuthContextProvider>
+//     </ThemeContextProvide>
+//   </div>
+//   );
+// }
+
+// export default App;
+
+import React from "react";
+import BookList from "./Hook/component/BookList";
+import Navbar from "./Hook/component/Navbar";
+import ThemeToggle from "./Hook/component/ThemeToggle";
+import AuthContextProvider from "./Hook/context/AuthContext";
+import BookContextProvider from "./Hook/context/BookContext";
+import ThemeContextProvider from "./Hook/context/ThemeContext";
+const App = () => {
   return (
     <div className="App">
-      <ThemeContextProvide>
+      <ThemeContextProvider>
         <AuthContextProvider>
           <Navbar />
-          <BookList />
+          <BookContextProvider>
+            <BookList />
+          </BookContextProvider>
           <ThemeToggle />
         </AuthContextProvider>
-      </ThemeContextProvide>
+      </ThemeContextProvider>
     </div>
   );
-}
+};
 
 export default App;
